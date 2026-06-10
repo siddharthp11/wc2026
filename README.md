@@ -111,6 +111,10 @@ npm run group TeamName
 npm run team TeamName
 ```
 
+## Data Source
+
+This project uses World Cup data from [openfootball/worldcup.json](https://github.com/openfootball/worldcup.json).
+
 ## License
 
 ISC
