@@ -1,5 +1,5 @@
 import { readFileSync } from "node:fs";
-import type { Teams, Groups, Group, Position } from "./types";
+import type { Teams, Groups, Group, Position, Match, Schedule } from "./types";
 // 1. Ability to get group + schedule for a single team
 
 const getPath = (path: string) => `2026/worldcup.${path}.json`;
@@ -35,21 +35,40 @@ function teamDetails(team: string) {
   return undefined;
 }
 
-type Command = "group" | " team";
-interface CommandArgs {
-  group: Array<string>;
-  team: string;
+function teamSchedule(team: string) {
+  const file = readFileSync("2026/worldcup.json", "utf-8");
+  const parsed = JSON.parse(file) as Schedule;
+  const teamToLower = team.toLowerCase();
+  return parsed.matches.filter(
+    (m) =>
+      m.team1.toLowerCase() === teamToLower ||
+      m.team2.toLowerCase() === teamToLower,
+  );
 }
 
-const fn = process.argv[2];
-let res: unknown;
-if (fn === "group") {
-  const args: CommandArgs["group"] = process.argv.slice(3);
-  res = teamToGroup(args);
-}
-if (fn === "team") {
-  const args: CommandArgs["team"] = process.argv[3];
-  res = teamDetails(args);
+type Command = "group" | "team" | "schedule";
+function isCommand(maybeCommand: string): maybeCommand is Command {
+  return ["group", "team", "schedule"].includes(maybeCommand);
 }
 
-console.log(res);
+const maybeCommand = process.argv[2];
+if (isCommand(maybeCommand)) {
+  let res: unknown;
+  switch (maybeCommand) {
+    case "group": {
+      res = teamToGroup(process.argv.slice(3));
+      break;
+    }
+    case "team": {
+      res = teamDetails(process.argv[3]);
+      break;
+    }
+    case "schedule": {
+      res = teamSchedule(process.argv[3]);
+      break;
+    }
+  }
+  console.log(res);
+} else {
+  console.error("Invalid command");
+}

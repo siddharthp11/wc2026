@@ -22,4 +22,18 @@ interface Team {
 }
 type Teams = Array<Team>;
 
-export type { Teams, Groups, Group, Position };
+interface Match {
+  round: string;
+  date: string;
+  time: string;
+  team1: string;
+  team2: string;
+  group: string;
+  ground: string;
+}
+interface Schedule {
+  name: string;
+  matches: Array<Match>;
+}
+
+export type { Teams, Groups, Group, Position, Match, Schedule };

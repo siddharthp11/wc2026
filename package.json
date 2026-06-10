@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "group": "tsx index.tsx group",
-    "team": "tsx index.ts team"
+    "team": "tsx index.ts team",
+    "games": "tsx index.ts schedule"
   },
   "keywords": [],
   "author": "",
