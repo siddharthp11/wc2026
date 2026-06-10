@@ -19,7 +19,7 @@ if (isCommand(maybeCommand)) {
       break;
     }
     case "games": {
-      res = handler.teamSchedule(process.argv[3]);
+      res = handler.teamSchedule(process.argv.slice(3));
       break;
     }
   }

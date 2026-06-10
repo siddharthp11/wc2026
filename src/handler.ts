@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import type { Teams, Groups, Group, Schedule } from "./types";
+import { handleSplitDateTime } from "./utils/date";
 // 1. Ability to get group + schedule for a single team
 
 const getPath = (path?: string) =>
@@ -37,15 +38,19 @@ function teamDetails(team: string) {
   return undefined;
 }
 
-function teamSchedule(team: string) {
+function teamSchedule(teams: Array<String>) {
   const file = readFileSync(getPath(), FORMAT);
   const parsed = JSON.parse(file) as Schedule;
-  const teamToLower = team.toLowerCase();
-  return parsed.matches.filter(
-    (m) =>
-      m.team1.toLowerCase() === teamToLower ||
-      m.team2.toLowerCase() === teamToLower,
-  );
+  const hashed = new Set(teams.map((t) => t.toLowerCase()));
+  return parsed.matches
+    .filter(
+      (m) =>
+        hashed.has(m.team1.toLowerCase()) || hashed.has(m.team2.toLowerCase()),
+    )
+    .map(({ date, time, ...rest }) => ({
+      ...rest,
+      datetime: handleSplitDateTime(date, time),
+    }));
 }
 
 export { teamDetails, teamSchedule, teamToGroup };
