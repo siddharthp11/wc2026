@@ -21,16 +21,18 @@ A CLI tool for querying FIFA World Cup 2026 data. The app provides access to tou
 ## Commands
 
 ```bash
-# Install dependencies
+# Install dependencies and link the CLI globally
 npm install
+npm link
 
-# Look up which group(s) teams belong to (accepts multiple team names)
+# After linking, use the `cup` CLI directly:
+cup group Brazil France
+cup team Brazil
+cup games Brazil
+
+# Or run via npm scripts without linking:
 npm run group Brazil France
-
-# Get detailed squad information for a specific team
 npm run team Brazil
-
-# Get match schedule for a team
 npm run games Brazil
 ```
 
@@ -44,6 +46,17 @@ The app uses a router/handler pattern:
   - `teamSchedule(team)`: Takes a single team name, searches `worldcup.json`, and returns all matches for that team
 
 Data files are loaded via `readFileSync` on each command execution. JSON parsing is typed using the type definitions from `src/types.ts`.
+
+## CLI Wiring
+
+The `cup` global command is enabled by two things working together:
+
+1. **`package.json` `bin` field**: Maps the `cup` command name to `./dist/router.js`. When `npm link` is run, npm symlinks this into the system's PATH.
+2. **Shebang in `src/router.ts`**: The first line (`#!/usr/bin/env node`) tells the OS to execute the file with Node.js when it's invoked directly as a binary.
+
+Running `npm link` from the project root is all that's needed — no global install required.
+
+To unlink, use `npm unlink -g cup`. Note: `npm unlink -g` takes the **package name** (the `name` field in `package.json`), not the command name from the `bin` field. In this project both happen to be `cup`, but they are distinct concepts.
 
 ## Tech Stack
 

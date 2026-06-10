@@ -1,13 +1,13 @@
 {
-  "name": "app",
+  "name": "cup",
   "version": "1.0.0",
   "main": "src/router.ts",
+  "bin": {
+    "cup": "./dist/router.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "group": "tsx src/router.ts group",
-    "team": "tsx src/router.ts team",
-    "games": "tsx src/router.ts games"
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",

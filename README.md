@@ -12,6 +12,16 @@ A command-line tool for querying FIFA World Cup 2026 data, including team groups
 
 ```bash
 npm install
+npm run build
+npm link
+```
+
+`npm link` registers the `cup` command globally on your machine so you can run it from anywhere.
+
+## Uninstall
+
+```bash
+npm unlink -g cup
 ```
 
 ## Usage
@@ -21,7 +31,7 @@ npm install
 Find the group(s) that one or more teams are in:
 
 ```bash
-npm run group Brazil France
+cup group Brazil France
 ```
 
 ### Get Team Details
@@ -29,7 +39,7 @@ npm run group Brazil France
 Get detailed squad information for a specific team:
 
 ```bash
-npm run team Brazil
+cup team Brazil
 ```
 
 ### Get Team Match Schedule
@@ -37,7 +47,7 @@ npm run team Brazil
 View all matches for a specific team:
 
 ```bash
-npm run games Brazil
+cup games Brazil
 ```
 
 ## Project Structure

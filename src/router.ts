@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+// The above shebang ensures Node.js (instead of bash) is used to run the compiled JS file.
 import * as handler from "./handler";
 
 type Command = "group" | "team" | "games";
