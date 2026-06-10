@@ -23,6 +23,7 @@ A CLI tool for querying FIFA World Cup 2026 data. The app provides access to tou
 ```bash
 # Install dependencies and link the CLI globally
 npm install
+npm run build
 npm link
 
 # After linking, use the `cup` CLI directly:
@@ -31,14 +32,15 @@ cup team Brazil
 cup games Brazil
 
 # Or run via npm scripts without linking:
-npm run group Brazil France
-npm run team Brazil
-npm run games Brazil
+npm run dev group Brazil France
+npm run dev team Brazil
+npm run dev games Brazil
 ```
 
 ## Architecture Notes
 
 The app uses a router/handler pattern:
+
 - **`src/router.ts`**: Parses command-line arguments and routes to the appropriate handler in `src/handler.ts`
 - **`src/handler.ts`**: Contains functions that load and query data files:
   - `teamToGroup(teams)`: Takes an array of team names (case-insensitive), searches `worldcup.groups.json`, and returns matching groups

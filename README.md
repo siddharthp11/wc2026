@@ -50,6 +50,12 @@ View all matches for a specific team:
 cup games Brazil
 ```
 
+## Development
+
+```bash
+npm run dev [...args] #  eg. npm run dev group teamName
+```
+
 ## Project Structure
 
 ```
@@ -98,19 +104,6 @@ data/
 - **Language**: TypeScript
 - **Runtime**: Node.js
 - **CLI Tool**: tsx (TypeScript executor)
-
-## Development
-
-```bash
-# Run group lookup
-npm run group TeamName
-
-# Run team details
-npm run team TeamName
-
-# Run schedule lookup
-npm run games TeamName
-```
 
 ## Data Source
 
