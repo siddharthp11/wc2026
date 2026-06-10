@@ -63,5 +63,10 @@ To unlink, use `npm unlink -g cup`. Note: `npm unlink -g` takes the **package na
 ## Tech Stack
 
 - **Language**: TypeScript 6.0.3
-- **Runtime**: Node.js (via tsx 4.22.4 for direct TS execution)
-- **No external dependencies** beyond dev tooling
+- **Runtime**: Node.js
+- **Build**: [tsup](https://tsup.egoist.dev/) — compiles TypeScript to ECMAScript (ES2020+)
+- **Testing**: [Vitest](https://vitest.dev/) — fast unit test framework
+- **Parsing**: [dayjs](https://day.js.org/) — lightweight date/time parsing and manipulation
+- **Runtime Dependencies**: 
+  - `dayjs`: Date/time parsing in data handlers
+- **Dev Dependencies**: `tsup`, `vitest`, TypeScript, and related tooling

@@ -15,10 +15,7 @@ export function handleSplitDateTime(dateStr: string, timeStr: string) {
     },
   );
 
-  return dayjs(
-    `${dateStr} ${normalizedTimeStr}`,
-    "YYYY-MM-DD HH:mm [UTC]Z",
-  ).toDate();
+  return dayjs(`${dateStr} ${normalizedTimeStr}`, "YYYY-MM-DD HH:mm [UTC]Z");
 }
 
 // --- FILE-LOCAL TESTS ---

@@ -9,7 +9,7 @@
   "scripts": {
     "test": "vitest",
     "build": "tsup",
-    "dev": "tsx src/index.ts",
+    "dev": "tsx src/router.ts",
     "typecheck": "tsc --noEmit"
   },
   "keywords": [],

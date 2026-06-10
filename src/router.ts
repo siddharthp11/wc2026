@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // The above shebang ensures Node.js (instead of bash) is used to run the compiled JS file.
 import * as handler from "./handler";
+import { renderTable } from "./utils/table";
 
 type Command = "group" | "team" | "games";
 function isCommand(maybeCommand: string): maybeCommand is Command {
@@ -19,7 +20,17 @@ if (isCommand(maybeCommand)) {
       break;
     }
     case "games": {
-      res = handler.teamSchedule(process.argv.slice(3));
+      const matches = handler.teamSchedule(process.argv.slice(3));
+      res = renderTable(
+        ["When", "Fixture", "Matchday", "Group", "Venue"],
+        matches.map((m) => ({
+          Matchday: m.round,
+          When: `${m.datetime.toString()} `,
+          Fixture: `${m.team1} - ${m.team2}`,
+          Group: m.group,
+          Venue: m.ground,
+        })),
+      );
       break;
     }
   }

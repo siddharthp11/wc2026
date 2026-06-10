@@ -38,6 +38,9 @@ function teamDetails(team: string) {
   return undefined;
 }
 
+const GROUP_PATTERN = new RegExp(/Group\s([A-Z])/);
+const MATCHDAY_PATTERN = new RegExp(/Matchday\s([0-9]+)/);
+
 function teamSchedule(teams: Array<String>) {
   const file = readFileSync(getPath(), FORMAT);
   const parsed = JSON.parse(file) as Schedule;
@@ -47,8 +50,14 @@ function teamSchedule(teams: Array<String>) {
       (m) =>
         hashed.has(m.team1.toLowerCase()) || hashed.has(m.team2.toLowerCase()),
     )
-    .map(({ date, time, ...rest }) => ({
-      ...rest,
+    .map(({ date, time, team1, team2, round, group, ground }) => ({
+      date,
+      time,
+      team1,
+      team2,
+      round: round.match(MATCHDAY_PATTERN)?.at(1) ?? "Unknown",
+      group: group.match(GROUP_PATTERN)?.at(1) ?? "Unknown",
+      ground,
       datetime: handleSplitDateTime(date, time),
     }));
 }
