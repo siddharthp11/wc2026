@@ -55,7 +55,7 @@ Output:
 ## Project Structure
 
 ```
-2026/
+data/
 ├── worldcup.json              # Complete tournament data and match schedule
 ├── worldcup.groups.json       # Group assignments and team groupings
 ├── worldcup.teams.json        # Team information
@@ -63,9 +63,9 @@ Output:
 ├── worldcup.stadiums.json     # Stadium information
 └── worldcup.quali_playoffs.json # Qualifying playoff data
 
-src/
-├── index.ts                   # CLI entry point
-├── types.ts                   # TypeScript type definitions
+├── router.ts                  # CLI entry point and command router
+├── handler.ts                 # Command handlers and data queries
+└── types.ts                   # TypeScript type definitions
 ```
 
 ## Data Files
@@ -109,6 +109,9 @@ npm run group TeamName
 
 # Run team details
 npm run team TeamName
+
+# Run schedule lookup
+npm run games TeamName
 ```
 
 ## Data Source

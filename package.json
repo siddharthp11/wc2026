@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "group": "tsx router.ts group",
     "team": "tsx router.ts team",
-    "games": "tsx router.ts schedule"
+    "games": "tsx router.ts games"
   },
   "keywords": [],
   "author": "",

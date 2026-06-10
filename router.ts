@@ -1,8 +1,8 @@
 import * as handler from "./handler";
 
-type Command = "group" | "team" | "schedule";
+type Command = "group" | "team" | "games";
 function isCommand(maybeCommand: string): maybeCommand is Command {
-  return ["group", "team", "schedule"].includes(maybeCommand);
+  return ["group", "team", "games"].includes(maybeCommand);
 }
 const maybeCommand = process.argv[2];
 if (isCommand(maybeCommand)) {
@@ -16,7 +16,7 @@ if (isCommand(maybeCommand)) {
       res = handler.teamDetails(process.argv[3]);
       break;
     }
-    case "schedule": {
+    case "games": {
       res = handler.teamSchedule(process.argv[3]);
       break;
     }
