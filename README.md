@@ -56,22 +56,6 @@ cup games Brazil
 npm run dev [...args] #  eg. npm run dev group teamName
 ```
 
-## Project Structure
-
-```
-src/
-├── router.ts                  # CLI entry point and command router
-├── handler.ts                 # Command handlers and data queries
-└── types.ts                   # TypeScript type definitions
-
-data/
-├── worldcup.json              # Complete tournament data and match schedule
-├── worldcup.groups.json       # Group assignments and team groupings
-├── worldcup.squads.json       # Complete player rosters for each team
-├── worldcup.stadiums.json     # Stadium information
-└── worldcup.quali_playoffs.json # Qualifying playoff data
-```
-
 ## Data Files
 
 ### Teams
