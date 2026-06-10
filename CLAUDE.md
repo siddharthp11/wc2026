@@ -29,15 +29,19 @@ npm run group Brazil France
 
 # Get detailed squad information for a specific team
 npm run team Brazil
+
+# Get match schedule for a team
+npm run games Brazil
 ```
 
 ## Architecture Notes
 
-The app uses a two-function pattern:
+The app uses a three-function pattern:
 - **`teamToGroup(teams)`**: Takes an array of team names (case-insensitive), searches `worldcup.groups.json`, and returns matching groups
 - **`teamDetails(team)`**: Takes a single team name, searches `worldcup.squads.json`, and returns team info with player names extracted from the full player objects
+- **`teamSchedule(team)`**: Takes a single team name, searches `worldcup.json`, and returns all matches for that team
 
-Data files are loaded via `readFileSync` on each command execution. JSON parsing is typed using the type definitions from `types.ts`.
+Data files are loaded via `readFileSync` on each command execution. JSON parsing is typed using the type definitions from `types.ts`. The CLI uses a type guard to validate commands before routing.
 
 ## Tech Stack
 
