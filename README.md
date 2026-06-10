@@ -24,15 +24,6 @@ Find the group(s) that one or more teams are in:
 npm run group Brazil France
 ```
 
-Output:
-
-```json
-[{
-  "name": "Group D",
-  "teams": ["Brazil", "France", "...]
-}]
-```
-
 ### Get Team Details
 
 Get detailed squad information for a specific team:
@@ -41,31 +32,28 @@ Get detailed squad information for a specific team:
 npm run team Brazil
 ```
 
-Output:
+### Get Team Match Schedule
 
-```json
-{
-  "name": "Brazil",
-  "fifa_code": "BRA",
-  "group": "Group D",
-  "players": ["Player 1", "Player 2", ...]
-}
+View all matches for a specific team:
+
+```bash
+npm run games Brazil
 ```
 
 ## Project Structure
 
 ```
-data/
-├── worldcup.json              # Complete tournament data and match schedule
-├── worldcup.groups.json       # Group assignments and team groupings
-├── worldcup.teams.json        # Team information
-├── worldcup.squads.json       # Complete player rosters for each team
-├── worldcup.stadiums.json     # Stadium information
-└── worldcup.quali_playoffs.json # Qualifying playoff data
-
+src/
 ├── router.ts                  # CLI entry point and command router
 ├── handler.ts                 # Command handlers and data queries
 └── types.ts                   # TypeScript type definitions
+
+data/
+├── worldcup.json              # Complete tournament data and match schedule
+├── worldcup.groups.json       # Group assignments and team groupings
+├── worldcup.squads.json       # Complete player rosters for each team
+├── worldcup.stadiums.json     # Stadium information
+└── worldcup.quali_playoffs.json # Qualifying playoff data
 ```
 
 ## Data Files

@@ -1,12 +1,13 @@
 {
   "name": "app",
   "version": "1.0.0",
-  "main": "router.ts",
+  "main": "src/router.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "group": "tsx router.ts group",
-    "team": "tsx router.ts team",
-    "games": "tsx router.ts games"
+    "build": "tsc",
+    "group": "tsx src/router.ts group",
+    "team": "tsx src/router.ts team",
+    "games": "tsx src/router.ts games"
   },
   "keywords": [],
   "author": "",

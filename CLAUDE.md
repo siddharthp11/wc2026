@@ -4,17 +4,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-A CLI tool for querying FIFA World Cup 2026 data. The app provides access to tournament information including group assignments, team rosters, match schedules, stadium information, and qualifying playoff data.
+A CLI tool for querying FIFA World Cup 2026 data. The app provides access to tournament information including group assignments, team rosters, match schedules, and qualifying playoff data.
 
 ## Project Structure
 
-- **`router.ts`**: Main CLI entry point. Handles command routing (`group`, `team`, and `schedule` commands)
-- **`handler.ts`**: Command handlers that load and query data files
-- **`types.ts`**: TypeScript type definitions for all data structures (Teams, Groups, Players, etc.)
+- **`src/router.ts`**: Main CLI entry point. Handles command routing (`group`, `team`, and `games` commands)
+- **`src/handler.ts`**: Command handlers that load and query data files
+- **`src/types.ts`**: TypeScript type definitions for all data structures (Teams, Groups, Players, etc.)
 - **`data/`**: Data directory containing JSON files sourced from [openfootball/worldcup.json](https://github.com/openfootball/worldcup.json)
   - `worldcup.groups.json`: Group structure (A-H) and team assignments
   - `worldcup.squads.json`: Complete player rosters with positions and dates of birth
-  - `worldcup.teams.json`: Team names and FIFA codes
   - `worldcup.json`: Full tournament data with match schedules
   - `worldcup.stadiums.json`: Venue information
   - `worldcup.quali_playoffs.json`: Qualifying playoff data
@@ -32,19 +31,19 @@ npm run group Brazil France
 npm run team Brazil
 
 # Get match schedule for a team
-npm run schedule Brazil
+npm run games Brazil
 ```
 
 ## Architecture Notes
 
 The app uses a router/handler pattern:
-- **`router.ts`**: Parses command-line arguments and routes to the appropriate handler in `handler.ts`
-- **`handler.ts`**: Contains functions that load and query data files:
+- **`src/router.ts`**: Parses command-line arguments and routes to the appropriate handler in `src/handler.ts`
+- **`src/handler.ts`**: Contains functions that load and query data files:
   - `teamToGroup(teams)`: Takes an array of team names (case-insensitive), searches `worldcup.groups.json`, and returns matching groups
-  - `teamDetails(team)`: Takes a single team name, searches `worldcup.squads.json`, and returns team info with player roster
+  - `teamDetails(team)`: Takes a single team name, searches `worldcup.squads.json`, and returns team info with simplified player names
   - `teamSchedule(team)`: Takes a single team name, searches `worldcup.json`, and returns all matches for that team
 
-Data files are loaded via `readFileSync` on each command execution. JSON parsing is typed using the type definitions from `types.ts`.
+Data files are loaded via `readFileSync` on each command execution. JSON parsing is typed using the type definitions from `src/types.ts`.
 
 ## Tech Stack
 
