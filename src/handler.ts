@@ -1,10 +1,12 @@
 import { readFileSync } from "node:fs";
 import type { Teams, Groups, Group, Schedule } from "./types";
 import { handleSplitDateTime } from "./utils/date";
-// 1. Ability to get group + schedule for a single team
+import path from "node:path";
 
-const getPath = (path?: string) =>
-  `data/worldcup${path ? "." + path : ""}.json`;
+const BASEPATH = path.join(import.meta.dirname, "..", "data");
+
+const getPath = (resource?: string) =>
+  `${BASEPATH}/worldcup${resource ? "." + resource : ""}.json`;
 const FORMAT = "utf-8";
 
 function teamToGroup(teams: Array<string>) {
