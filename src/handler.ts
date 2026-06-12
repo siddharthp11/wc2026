@@ -1,14 +1,9 @@
 import { readFileSync } from "node:fs";
 import type { Teams, Groups, Group, Schedule } from "./types";
 import { handleSplitDateTime } from "./utils/date";
-import path from "node:path";
+import { getPath } from "./utils/path";
 
-const BASEPATH = path.join(import.meta.dirname, "..", "data");
-
-const getPath = (resource?: string) =>
-  `${BASEPATH}/worldcup${resource ? "." + resource : ""}.json`;
 const FORMAT = "utf-8";
-
 function teamToGroup(teams: Array<string>) {
   const file = readFileSync(getPath("groups"), FORMAT);
   const hashedTeams = new Set(teams.map((t) => t.toLowerCase()));
