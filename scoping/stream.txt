@@ -1,0 +1,42 @@
+https://allsportsapi.com/soccer-football-socket-documentation
+- too expensive 
+- data looks decent and granular 
+- website look scammy 
+
+https://www.api-football.com/
+- looks good 
+- https://www.api-football.com/documentation-v3#tag/Fixtures/operation/get-fixtures-events in particular 
+
+https://www.reddit.com/r/webdev/comments/1i6t8e6/looking_for_the_best_bootball_soccer_data_api_my/
+- trash talks api-football 
+- guy is looking for general sports data not live 
+  - ended up trying to build a scraper 
+- https://datasportsgroup.com/ for mid-price range 
+- https://footballdata.io/ 
+
+https://datasportsgroup.com/products-api/
+- looks like it has live sports 
+- https://footballdata.io/
+
+enterprise grade stuff [expensive event feeds]
+- https://sportradar.com/
+  - realtime data streams 
+- https://www.statsperform.com/products/opta-data/ 
+  - opta vision is generally used by betting apps 
+  - tracks video feed and outputs xyz 
+- second spectrum
+  - official epl metrics 
+
+custom stuff [simulation]
+- https://github.com/Ahmed-El-Zainy/soccer 
+  - pitch / player detection 
+  - cant really do this cuz i don't have streaming rights 
+- use algo to simulate player movement + roughly steer the simulation 
+
+free/open source data 
+- statsbomb https://github.com/statsbomb/open-data
+  - xy data [StatsBomb 360] 
+- metrica https://github.com/metrica-sports/sample-data
+  - multiple full matches of 25 frames-per-second (FPS) tracking data 
+  - xy 
+- Redsational / Soccer Analytics Datasets: Maintained by the Friends of Tracking
