@@ -1,11 +1,11 @@
 package handlers
 
 import (
-	"encoding/json"
 	"net/http"
 	"strconv"
 	"unicode"
 
+	handlerutils "match_data/internal/handlers/utils"
 	"match_data/internal/models"
 	"match_data/internal/services"
 )
@@ -21,7 +21,7 @@ type errorResponse struct {
 func GetTournaments(w http.ResponseWriter, r *http.Request) {
 	season, ok := parseSeason(r.URL.Query().Get("season"))
 	if !ok {
-		writeJSON(w, http.StatusBadRequest, errorResponse{
+		handlerutils.WriteJSON(w, http.StatusBadRequest, errorResponse{
 			Error: "season must be a 4-digit integer",
 		})
 		return
@@ -29,16 +29,18 @@ func GetTournaments(w http.ResponseWriter, r *http.Request) {
 
 	tournaments, err := services.GetTournaments(season)
 	if err != nil {
-		writeJSON(w, http.StatusInternalServerError, errorResponse{
+		handlerutils.WriteJSON(w, http.StatusInternalServerError, errorResponse{
 			Error: "failed to load tournaments",
 		})
 		return
 	}
 
-	writeJSON(w, http.StatusOK, tournamentsResponse{
+	handlerutils.WriteJSON(w, http.StatusOK, tournamentsResponse{
 		Tournaments: tournaments,
 	})
 }
+
+// --------------------- HELPER FUNCTIONS FOR INCOMING TYPE VALIDATION -----------------------------
 
 func parseSeason(raw string) (int, bool) {
 	if len(raw) != 4 {
@@ -57,10 +59,4 @@ func parseSeason(raw string) (int, bool) {
 	}
 
 	return season, true
-}
-
-func writeJSON(w http.ResponseWriter, status int, body any) {
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(status)
-	_ = json.NewEncoder(w).Encode(body)
 }
