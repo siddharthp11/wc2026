@@ -1,0 +1,100 @@
+[
+  {
+    "id": 1,
+    "name": "FIFA World Cup",
+    "season": 2026,
+    "type": "cup",
+    "current": true
+  },
+  {
+    "id": 2,
+    "name": "Premier League",
+    "season": 2026,
+    "type": "league",
+    "current": true
+  },
+  {
+    "id": 3,
+    "name": "La Liga",
+    "season": 2026,
+    "type": "league",
+    "current": true
+  },
+  {
+    "id": 4,
+    "name": "Serie A",
+    "season": 2026,
+    "type": "league",
+    "current": true
+  },
+  {
+    "id": 5,
+    "name": "Bundesliga",
+    "season": 2026,
+    "type": "league",
+    "current": true
+  },
+  {
+    "id": 6,
+    "name": "Ligue 1",
+    "season": 2026,
+    "type": "league",
+    "current": true
+  },
+  {
+    "id": 7,
+    "name": "UEFA Champions League",
+    "season": 2026,
+    "type": "cup",
+    "current": true
+  },
+  {
+    "id": 8,
+    "name": "UEFA Europa League",
+    "season": 2026,
+    "type": "cup",
+    "current": true
+  },
+  {
+    "id": 9,
+    "name": "Copa Libertadores",
+    "season": 2026,
+    "type": "cup",
+    "current": true
+  },
+  {
+    "id": 10,
+    "name": "Major League Soccer",
+    "season": 2026,
+    "type": "league",
+    "current": true
+  },
+  {
+    "id": 11,
+    "name": "Liga MX",
+    "season": 2026,
+    "type": "league",
+    "current": true
+  },
+  {
+    "id": 12,
+    "name": "EFL Cup",
+    "season": 2026,
+    "type": "cup",
+    "current": true
+  },
+  {
+    "id": 13,
+    "name": "Archived Cup",
+    "season": 2026,
+    "type": "cup",
+    "current": false
+  },
+  {
+    "id": 14,
+    "name": "Previous Season League",
+    "season": 2025,
+    "type": "league",
+    "current": true
+  }
+]
