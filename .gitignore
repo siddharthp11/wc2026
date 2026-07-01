@@ -3,3 +3,8 @@ package-lock.json
 data/fantasy
 dist/
 
+# Go build/test artifacts
+bin/
+*.test
+*.out
+coverage.out
