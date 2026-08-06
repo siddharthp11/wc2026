@@ -1,5 +1,5 @@
 {
-  "name": "noti",
+  "name": "newsfeed",
   "version": "1.0.0",
   "type": "module",
   "main": "main.js",
@@ -9,7 +9,7 @@
     "start": "NODE_ENV=production node --env-file=.env main.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "sid",
   "license": "ISC",
-  "description": ""
+  "description": "blow up my api credits trying to make a shitty newsfeed on soccer from various social media sources"
 }
