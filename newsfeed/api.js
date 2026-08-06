@@ -7,10 +7,10 @@ const MEMORY = 128;
 
 function buildURL(path, params) {
     const url = new URL(path.join('/'), BASE_URL);
-    const queryParams = new URLSearchParams(params);
-    const finalUrl = `${url}?${queryParams.toString()}`;
-    console.info(finalUrl);
-    return finalUrl;
+    const validatedParams = new URLSearchParams(params);
+    const validUrl = `${url}?${validatedParams.toString()}`;
+    console.info(withParams);
+    return validUrl;
 }
 
 async function runScraperAndReturnResultSync() {
