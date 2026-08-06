@@ -6,7 +6,7 @@ const MEMORY = 128;
 
 
 function buildURL(path, params) {
-    const url = new URL(path, BASE_URL);
+    const url = new URL(path.join('/'), BASE_URL);
     const queryParams = new URLSearchParams(params);
     const finalUrl = `${url}?${queryParams.toString()}`;
     console.info(finalUrl);
@@ -16,7 +16,7 @@ function buildURL(path, params) {
 async function runScraperAndReturnResultSync() {
     const response = await fetch(
         buildURL(
-            `actors/${ACTOR_ID}`,
+            ['actors', ACTOR_ID],
             { memory: MEMORY, build: "beta", token: APIFY_TOKEN }
         ), {
         method: 'POST',
@@ -42,7 +42,7 @@ async function runScraperAndReturnResultSync() {
 
 async function fetchExampleResult() {
     const response = await fetch(
-        buildURL(`datasets/${EXAMPLE_DATASET_ID}/items`, { format: "json" }),
+        buildURL(['dataset', EXAMPLE_DATASET_ID, 'items'], { format: "json" }),
         {
             method: "GET",
             headers: {
