@@ -1,3 +1,11 @@
+
+session: 8/6 
+next: 
+- gotta wire to openai 
+- setup precommit/prettier 
+- uh typescript idk 
+
+log: 
 - tried to register w reddit dev platform
 - want to create OAUTH2 app / get an API key 
 - turns out they literally suspended their 3rd party app support 
