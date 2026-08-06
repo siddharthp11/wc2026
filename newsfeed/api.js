@@ -42,7 +42,7 @@ async function runScraperAndReturnResultSync() {
 
 async function fetchExampleResult() {
     const response = await fetch(
-        buildURL(['dataset', EXAMPLE_DATASET_ID, 'items'], { format: "json" }),
+        buildURL(['datasets', EXAMPLE_DATASET_ID, 'items'], { format: "json" }),
         {
             method: "GET",
             headers: {
