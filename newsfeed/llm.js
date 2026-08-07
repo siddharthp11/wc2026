@@ -11,7 +11,7 @@ const MODELS = Object.freeze({
 async function getResponse(input, options = {}) {
     const result = await client.responses.create({
         model: MODELS.secondary,
-        instructions: "Provide an single-line opinion on a collection of posts scraped from reddit.",
+        instructions: "Provide a single-line opinion on a collection of posts scraped from reddit.",
         reasoning: { effort: "minimal" },
         input,
         ...options

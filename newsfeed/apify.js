@@ -1,7 +1,7 @@
 const APIFY_TOKEN = process.env.APIFY_TOKEN;
 const BASE_URL = "https://api.apify.com/v2/"
 const ACTOR_ID = "macrocosmos~reddit-scraper";
-const EXAMPLE_DATASET_ID = "05Mx3Rhs3zi9lXUfU";
+const EXAMPLE_DATASET_ID = "OODppxBcGcZ7fXrCL";
 const MEMORY = 128;
 
 
@@ -16,8 +16,8 @@ function buildURL(path, params) {
 async function runScraperAndReturnResultSync() {
     const response = await fetch(
         buildURL(
-            ['actors', ACTOR_ID],
-            { memory: MEMORY, build: "beta", token: APIFY_TOKEN }
+            ['actors', ACTOR_ID, 'run-sync'],
+            { token: APIFY_TOKEN, memory: MEMORY, build: "beta", }
         ), {
         method: 'POST',
         headers: {

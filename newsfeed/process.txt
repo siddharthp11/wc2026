@@ -1,4 +1,9 @@
 session: 8/7
+next: 
+- bug where response.json returns empty for /run-sync, should probably start async and poll completion. 
+- actually stream some results to the terminal
+- funny "--burn [dollars|cents]" command line arg for model selection 
+
 log: 
 - okok got openai key 
 - dev console so much better than i remember
