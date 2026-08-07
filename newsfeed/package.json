@@ -11,5 +11,8 @@
   "keywords": [],
   "author": "sid",
   "license": "ISC",
-  "description": "blow up my api credits trying to make a shitty newsfeed on soccer from various social media sources"
+  "description": "blow up my api credits trying to make a shitty newsfeed on soccer from various social media sources",
+  "dependencies": {
+    "openai": "^6.49.0"
+  }
 }

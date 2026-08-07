@@ -9,7 +9,7 @@ function buildURL(path, params) {
     const url = new URL(path.join('/'), BASE_URL);
     const validatedParams = new URLSearchParams(params);
     const validUrl = `${url}?${validatedParams.toString()}`;
-    console.info(withParams);
+    console.info(validUrl);
     return validUrl;
 }
 

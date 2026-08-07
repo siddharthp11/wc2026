@@ -1,18 +1,31 @@
-import { fetchExampleResult, runScraperAndReturnResultSync } from "./api.js";
+import { fetchExampleResult, runScraperAndReturnResultSync } from "./apify.js";
+import { getResponse } from "./llm.js";
 
-try {
+async function getMediaCtx() {
     let response;
     if (process.env.NODE_ENV === 'production') {
         response = await runScraperAndReturnResultSync();
     } else {
         response = await fetchExampleResult();
     }
+
     if (!response.ok) {
         console.error("Failed to get response", response.statusText);
-    } else {
-        const data = await response.json();
-        console.log(data);
+        throw Error("Could not get response");
     }
-} catch (e) {
-    console.error("Encountered an error", e)
+    const data = await response.json();
+    return data;
 }
+
+
+async function run() {
+    try {
+        const ctx = await getMediaCtx();
+        const response = await getResponse(JSON.stringify(ctx));
+        console.log(response);
+    } catch (e) {
+        console.error("Encountered an error", e);
+    }
+}
+
+run();

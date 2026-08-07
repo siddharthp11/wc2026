@@ -1,4 +1,19 @@
-
+session: 8/7
+log: 
+- okok got openai key 
+- dev console so much better than i remember
+- https://developers.openai.com/api/docs/guides/structured-outputs?lang=javascript
+    - easy to find model/pricing/comparison
+    - agents/responses/modalities are all vv clear 
+- anyways 
+- deciding between structured output or raw output 
+- deciding between batch<request> or single request 
+- how should the output look? 
+    - one line of commentary per post, streamed over [x0] seconds before the next batch is queued. 
+        - given the last [x0] seconds of hot posts 
+        - per post, lets get a single line of commentary 
+        - can use batch api for better rates. 
+        - fun to see whether multuiple streams are emitted. 
 session: 8/6 
 next: 
 - gotta wire to openai 
