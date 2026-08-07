@@ -21,8 +21,10 @@ async function getMediaCtx() {
 async function run() {
     try {
         const ctx = await getMediaCtx();
-        const response = await getResponse(JSON.stringify(ctx));
-        console.log(response);
+        if (ctx) {
+            const response = await getResponse(JSON.stringify(ctx));
+            console.log(response);
+        }
     } catch (e) {
         console.error("Encountered an error", e);
     }
