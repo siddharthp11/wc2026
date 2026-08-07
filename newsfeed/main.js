@@ -1,5 +1,4 @@
-import { fetchExampleResult, runScraperAndReturnResultSync } from "./apify.js";
-import { getResponse } from "./llm.js";
+import { fetchExampleResult, runScraperAndReturnResultSync, getResponse } from "./integrations/index.js";
 
 async function getMediaCtx() {
     let response;
