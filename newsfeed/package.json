@@ -2,11 +2,11 @@
   "name": "newsfeed",
   "version": "1.0.0",
   "type": "module",
-  "main": "main.js",
+  "main": "src/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "NODE_ENV=development node --env-file=.env main.js",
-    "start": "NODE_ENV=production node --env-file=.env main.js"
+    "dev": "NODE_ENV=development node --env-file=.env src/main.js",
+    "start": "NODE_ENV=production node --env-file=.env src/main.js"
   },
   "keywords": [],
   "author": "sid",

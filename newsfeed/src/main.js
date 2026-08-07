@@ -1,4 +1,5 @@
 import { fetchExampleResult, runScraperAndReturnResultSync, getResponse } from "./integrations/index.js";
+import { mapJSONL } from "./utils/index.js";
 
 async function getMediaCtx() {
     let response;
@@ -12,8 +13,8 @@ async function getMediaCtx() {
         console.error("Failed to get response", response.statusText);
         throw Error("Could not get response");
     }
-    const data = await response.json();
-    return data;
+    const posts = await response.json();
+    return mapJSONL(posts, ['username', 'title'], ':');
 }
 
 

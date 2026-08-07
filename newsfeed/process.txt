@@ -19,6 +19,7 @@ log:
         - per post, lets get a single line of commentary 
         - can use batch api for better rates. 
         - fun to see whether multuiple streams are emitted. 
+- added a fun util called mapJSONL, would be awesome if that did a regex style map instead of [keys-delim]
 session: 8/6 
 next: 
 - gotta wire to openai 

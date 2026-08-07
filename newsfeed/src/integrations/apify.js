@@ -54,4 +54,6 @@ async function fetchExampleResult() {
     return response;
 }
 
+
+
 export { fetchExampleResult, runScraperAndReturnResultSync }
