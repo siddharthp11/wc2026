@@ -1,0 +1,39 @@
+
+session: 8/6 
+next: 
+- gotta wire to openai 
+- setup precommit/prettier 
+- uh typescript idk 
+
+log: 
+- tried to register w reddit dev platform
+- want to create OAUTH2 app / get an API key 
+- turns out they literally suspended their 3rd party app support 
+- options are apify / n8n
+- n8n is cool 
+- lets try it 
+- you can also append .json / .rss to links to get data. 
+- the .json thing doesn't work; got a html response (even tho i passed -H 'Accept: application/json') and a page not found in browser. 
+- gonna just try n8n
+- ok tried reddit apps 
+    - this npm create devvit@latest Ch5rbkRINlNPNGhFWFVFTHFjRzR4c0hPcEpUNUl5bmcSB3VoLXRlc3QaBGJhcmU=
+- lets you do local dev w a fake subreddit 
+- super anal / protected / gotta jump through hoops to host it 
+- they host it. 
+- anyway
+- n8n is docker-runnable otherwise a 20 usd a month subscription 
+    - you still need reddit credentials 
+- im gonna just try apify 
+    - apify isn't an API 
+    - for reddit 
+    - a couple of the resources on there are build runners 
+    - that scrape a reddit for you 
+    - but spin up a whole VM for your scraping job.
+    - the min VM memory is 128
+    - its like 3c a run
+    - https://console.apify.com/actors/RA1CgWSkuTRNdnOAY/input
+- ok 
+    - gonna mint a tok 
+    - trigger this apify actor synchronously from my laptop and get da results 
+    - idk at what frequency
+    

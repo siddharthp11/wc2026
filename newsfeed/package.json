@@ -1,0 +1,15 @@
+{
+  "name": "newsfeed",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "NODE_ENV=development node --env-file=.env main.js",
+    "start": "NODE_ENV=production node --env-file=.env main.js"
+  },
+  "keywords": [],
+  "author": "sid",
+  "license": "ISC",
+  "description": "blow up my api credits trying to make a shitty newsfeed on soccer from various social media sources"
+}
